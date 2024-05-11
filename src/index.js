@@ -1,17 +1,58 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import Home from "./pages/Home";
+import About from "./Pages/About";
+import Services from "./Pages/Services";
+import Projects from "./Pages/Projects";
+import Contact from "./Pages/Contact";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const Loaderimg = () => (
+  <div id="global-loader">
+    <img
+      src={"/logo512.png"}
+      className="loader-img"
+      alt="Loader"
+    />
+  </div>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+root.render(
+  <>
+ 
+      <BrowserRouter>
+        <React.Suspense fallback={<Loaderimg />}>
+          <Routes>
+            <Route element={<App />}>
+              <Route
+                path={`${process.env.PUBLIC_URL}/`}
+                element={<Home />}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/about`}
+                element={<About />}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/services`}
+                element={<Services />}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/project`}
+                element={<Projects />}
+              />
+              <Route
+                path={`${process.env.PUBLIC_URL}/contact`}
+                element={<Contact />}
+              />
+            </Route>
+          </Routes>
+        </React.Suspense>
+      </BrowserRouter>
+
+  </>
+);
