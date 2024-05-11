@@ -8,6 +8,7 @@ function App() {
   return (
     <Fragment>
       <Header />
+      
       <Outlet />
 
       <Footer />
