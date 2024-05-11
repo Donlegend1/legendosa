@@ -8,6 +8,7 @@ const Projects = () => {
     <>
       <Header2 title={"projects"} />
       <br />
+      
           <Project />
           <FAQ />
     </>
