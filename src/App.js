@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./Components/Header";
+import Header from "./components/Header";
 
-import Footer from "./Components/Footer";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Fragment>
       <Header />
-      
+
       <Outlet />
 
       <Footer />
